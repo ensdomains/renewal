@@ -1,0 +1,24 @@
+{
+  "name": "renewal",
+  "version": "1.0.0",
+  "description": "This js library will allow wallets and dapps to remind users that they own expiring names and earn referral fee in exchange.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ensdomains/renewal.git"
+  },
+  "author": "Makoto Inoue",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ensdomains/renewal/issues"
+  },
+  "homepage": "https://github.com/ensdomains/renewal#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "graphql-request": "^1.8.2",
+    "graphql-tag": "^2.10.3"
+  }
+}
