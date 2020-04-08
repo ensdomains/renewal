@@ -1,4 +1,4 @@
-import { request, GraphQLClient } from 'graphql-request'
+import { GraphQLClient } from 'graphql-request'
 
 export const GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH = `
   query getDomains($userAddress: String!, $expiryDate: Int!) {
