@@ -32,3 +32,7 @@ if(numExpiringDomains > 0){
 ## Notes
 
 - Any UI compoment will be offered as a seperate widget (eg: `@ensdomains/renew-widget`).
+
+## TODO
+
+- Add unit test
