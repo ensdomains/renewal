@@ -16,7 +16,7 @@ const {
   renewalUrl
  } = await checkRenewal(userAddress, referrerAddress)
 
-if(hasExpiringDomains > 0){
+if(numExpiringDomains > 0){
   return <a href={renewalUrl}>You have {numExpiringDomains} names needing renewal!</a>
 }
 ```
@@ -26,9 +26,9 @@ if(hasExpiringDomains > 0){
 
 ### Optional arguments
 
--  `expirtyDate` = The default is set to 30 days from now
--  `debug`       = The default is set to `false`. It displayes some debugging messaage if it's on.
+-  `expiryDate` = Date object. The default is set to 30 days from now
+-  `debug`      = Boolean. The default is set to `false`. It displayes some debugging messaage if it's on.
 
 ## Notes
 
-- Any UI compoment will be offered as a seperate React component (eg: `@ensdomains/react-renew`).
+- Any UI compoment will be offered as a seperate widget (eg: `@ensdomains/renew-widget`).

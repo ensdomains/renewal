@@ -5,7 +5,7 @@ renewal.checkRenewal(
   userAddress,
   referrerAddress,
   {
-      expirtyDate:new Date("2020-05-04T16:10:38"),
+      expiryDate:new Date("2020-05-04T16:10:38"),
       debug:false
   }
 ).then(console.log)
