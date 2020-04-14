@@ -1,6 +1,6 @@
 {
   "name": "@ensdomains/renewal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This js library will allow wallets and dapps to remind users that they own expiring names and earn referral fee in exchange.",
   "main": "index.js",
   "scripts": {
