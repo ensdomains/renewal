@@ -19,7 +19,9 @@ export const GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH = `
 const endpoint = 'https://api.thegraph.com/subgraphs/name/ensdomains/ens'
 const client = new GraphQLClient(endpoint, {
   headers: {
-      Authorization: ``
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'cross-site'
   }
 })
 

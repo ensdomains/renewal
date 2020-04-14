@@ -2,8 +2,10 @@
   "name": "@ensdomains/renewal",
   "version": "0.0.3",
   "description": "This js library will allow wallets and dapps to remind users that they own expiring names and earn referral fee in exchange.",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
+    "example": "node -r esm example.js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +22,15 @@
     "esm": "^3.2.25",
     "graphql-request": "^1.8.2",
     "graphql-tag": "^2.10.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "fetch-event": "^1.0.0-alpha",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.6.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
