@@ -37,11 +37,13 @@ export async function checkRenewal(userAddress, referrerAddress, {expiryDate, de
     expiryDate: parseInt(expiryDate / 1000)
   })
   const count = account.registrations.length
+  const firstExpiryDate = account.registrations[0] && account.registrations[0].expiryDate
   if(debug){
     console.log(account.registrations.map((r) => { return [r.domain.labelName, new Date(r.expiryDate * 1000)]}))
   }
   const res = {
     numExpiringDomains: count,
+    firstExpiryDate: firstExpiryDate && new Date(firstExpiryDate * 1000),
     renewalUrl: `https://app.ens.domains/address/${userAddress}?referrer=${referrerAddress}`
   }
   return res
