@@ -1,6 +1,6 @@
 const renewal  = require('./dist/index');
-const userAddress ='0xA7F3659c53820346176f7E0E350780DF304db179'
-const referrerAddress ='0x5A384227B65FA093DEC03Ec34e111Db80A040615'
+const userAddress ='0x8B4e42B43ed7B62ec1E3FC4E6548A8AB989302B6'
+
 console.log({renewal})
 renewal.checkRenewal(
   userAddress,

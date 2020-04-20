@@ -49,8 +49,8 @@ export async function checkRenewal(userAddress, utmParams, {expiryDate, debug}) 
     userAddress: userAddress.toLowerCase(),
     expiryDate: parseInt(expiryDate / 1000)
   })
-  const count = account.registrations.length
-  const firstExpiryDate = account.registrations[0] && account.registrations[0].expiryDate
+  const count = account ? account.registrations.length : 0
+  const firstExpiryDate = account && account.registrations[0] && account.registrations[0].expiryDate
   if(debug){
     console.log(account.registrations.map((r) => { return [r.domain.labelName, new Date(r.expiryDate * 1000)]}))
   }
