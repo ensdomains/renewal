@@ -25,7 +25,20 @@ const client = new GraphQLClient(endpoint, {
   }
 })
 
-export async function checkRenewal(userAddress, referrerAddress, {expiryDate, debug}) {
+const jsonToQueryString = json => {
+  if(!json) return ''
+  return '?' +
+      Object.keys(json).map(function(key) {
+          return encodeURIComponent(key) + '=' +
+              encodeURIComponent(json[key]);
+      }).join('&');
+}
+
+// const host = 'https://app.ens.domains'
+// Test site for bulk renewal
+const host = 'http://craven-cup.surge.sh'
+
+export async function checkRenewal(userAddress, utmParams, {expiryDate, debug}) {
   if(!expiryDate){
     let date = new Date();
     expiryDate = date.setDate(date.getDate() + 30);  
@@ -44,7 +57,7 @@ export async function checkRenewal(userAddress, referrerAddress, {expiryDate, de
   const res = {
     numExpiringDomains: count,
     firstExpiryDate: firstExpiryDate && new Date(firstExpiryDate * 1000),
-    renewalUrl: `https://app.ens.domains/address/${userAddress}?referrer=${referrerAddress}`
+    renewalUrl: `${host}/address/${userAddress}${jsonToQueryString(utmParams)}`
   }
   return res
 }

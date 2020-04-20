@@ -4,7 +4,11 @@ const referrerAddress ='0x5A384227B65FA093DEC03Ec34e111Db80A040615'
 console.log({renewal})
 renewal.checkRenewal(
   userAddress,
-  referrerAddress,
+  {
+    utm_medium: 'web',
+    utm_source: 'opensea.io',
+    utm_campaign: 'renewal'
+  },
   {
       expiryDate:new Date("2020-05-04T16:10:38"),
       debug:false
