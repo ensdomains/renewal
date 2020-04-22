@@ -36,7 +36,7 @@ const jsonToQueryString = json => {
 
 // const host = 'https://app.ens.domains'
 // Test site for bulk renewal
-const host = 'http://craven-cup.surge.sh'
+const host = 'http://ensappdev.surge.sh'
 
 export async function checkRenewal(userAddress, utmParams, {expiryDate, debug}) {
   if(!expiryDate){
