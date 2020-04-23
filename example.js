@@ -10,7 +10,6 @@ renewal.checkRenewal(
     utm_campaign: 'renewal'
   },
   {
-      expiryDate:new Date("2020-05-04T16:10:38"),
-      debug:false
+      debug:true
   }
 ).then(console.log)

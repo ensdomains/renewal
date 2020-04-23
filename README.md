@@ -13,8 +13,10 @@ const referrerAddress = '0x234...'
 
 const {
   numExpiringDomains,
-  renewalUrl
- } = await checkRenewal(userAddress, referrerAddress)
+  renewalUrl,
+  expiryDate,
+  endOfGracePeriod
+ } = await checkRenewal(userAddress, queryParams)
 
 if(numExpiringDomains > 0){
   return <a href={renewalUrl}>You have {numExpiringDomains} names needing renewal!</a>
@@ -23,12 +25,13 @@ if(numExpiringDomains > 0){
 
 - `renewalUrl` = `https:/app.ens.domains/address/0x123/renewal?referrer=0x345`
 - `numExpiringDomains` return only up to 100
-- `firstExpiryDate` returns the expiry date of the name which expires first
+- `expirtyDate` = The expiraion date. Once expired you cannot transfer names unless renewed.
+-  `endOfGracePeriod` = expirtyDate + 90 days when other poeple can start bidding on the name.
 
 ### Optional arguments
 
--  `expiryDate` = Date object. The default is set to 30 days from now
--  `debug`      = Boolean. The default is set to `false`. It displayes some debugging messaage if it's on.
+-  `days`  = Number of days before `endOfGracePeriod`. The default is set to 30 days from now.
+-  `debug` = Boolean. The default is set to `false`. It displayes some debugging messaage if it's on.
 
 ## Notes
 

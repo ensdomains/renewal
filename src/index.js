@@ -38,26 +38,25 @@ const jsonToQueryString = json => {
 // Test site for bulk renewal
 const host = 'http://ensappdev.surge.sh'
 
-export async function checkRenewal(userAddress, utmParams, {expiryDate, debug}) {
-  if(!expiryDate){
-    let date = new Date();
-    expiryDate = date.setDate(date.getDate() + 30);  
-  }else{
-    expiryDate = expiryDate.getTime();
-  }
+export async function checkRenewal(userAddress, utmParams, {days=30, debug}) {
+  let date = new Date();
+  const expiryDate = date.setDate(date.getDate() + (- 90 + days));
+
   const { account } = await client.request(GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH, {
     userAddress: userAddress.toLowerCase(),
     expiryDate: parseInt(expiryDate / 1000)
   })
   const count = account ? account.registrations.length : 0
-  const firstExpiryDate = account && account.registrations[0] && account.registrations[0].expiryDate
-  if(debug){
+  const endOfGracePeriod = new Date(expiryDate)
+  endOfGracePeriod.setDate(endOfGracePeriod.getDate() + 90)
+  if(debug && account){
     console.log(account.registrations.map((r) => { return [r.domain.labelName, new Date(r.expiryDate * 1000)]}))
   }
   const res = {
     numExpiringDomains: count,
-    firstExpiryDate: firstExpiryDate && new Date(firstExpiryDate * 1000),
-    renewalUrl: `${host}/address/${userAddress}${jsonToQueryString(utmParams)}`
+    renewalUrl: `${host}/address/${userAddress}${jsonToQueryString(utmParams)}`,
+    expiryDate:new Date(expiryDate),
+    endOfGracePeriod
   }
   return res
 }
