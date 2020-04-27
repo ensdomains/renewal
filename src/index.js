@@ -34,9 +34,7 @@ const jsonToQueryString = json => {
       }).join('&');
 }
 
-// const host = 'https://app.ens.domains'
-// Test site for bulk renewal
-const host = 'http://ensappdev.surge.sh'
+const host = 'https://app.ens.domains'
 
 export async function checkRenewal(userAddress, utmParams, {days=30, debug}) {
   let date = new Date();
