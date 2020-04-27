@@ -40,7 +40,7 @@ const host = 'http://ensappdev.surge.sh'
 
 export async function checkRenewal(userAddress, utmParams, {days=30, debug}) {
   let date = new Date();
-  const expiryDate = date.setDate(date.getDate() + (- 90 + days));
+  const expiryDate = date.setDate(date.getDate() + days);
 
   const { account } = await client.request(GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH, {
     userAddress: userAddress.toLowerCase(),
