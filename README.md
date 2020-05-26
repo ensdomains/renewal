@@ -23,7 +23,7 @@ if(numExpiringDomains > 0){
 }
 ```
 
-- `renewalUrl` = `https:/app.ens.domains/address/0x123/renewal?referrer=0x345`
+- `renewalUrl` = `https:/app.ens.domains/address/0x123?utm_source=YOUR_APP`
 - `numExpiringDomains` return only up to 100
 - `expirtyDate` = The expiraion date. Once expired you cannot transfer names unless renewed.
 - `endOfGracePeriod` = expirtyDate + 90 days when other poeple can start bidding on the name.
